@@ -5,3 +5,4 @@ typing
 pydantic
 tweety-ns
 gunicorn
+pywin32==306; sys_platform == 'win32'
