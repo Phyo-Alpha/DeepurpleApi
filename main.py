@@ -8,6 +8,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/favicon.ico")
 async def favicon():
+    print("fav")
     return FileResponse("static/favicon.ico")
 
 
