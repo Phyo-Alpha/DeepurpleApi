@@ -38,9 +38,7 @@ soupsieve==2.5
 starlette==0.35.1
 sympy==1.11.1
 tokenizers==0.15.0
-torch
-torchaudio
-torchvision
+torch==2.3.0.dev20240116+cpu
 tqdm==4.66.1
 transformers==4.36.2
 tweety-ns==1.0.5
