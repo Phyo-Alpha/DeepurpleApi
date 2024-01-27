@@ -31,15 +31,18 @@ async def hello():
 @app.post("/predict")
 async def predict(sentences: Sentences):
     model_outputs = classifier(sentences.sentences)
+    result = []
 
     for i, output in enumerate(model_outputs):
-        print(f"Text : {sentences.sentences[i]}")
-        for emotion in output:
-            if emotion["score"] < 0:
-                pass
-            else:
-                print(f"{emotion['label']} : {emotion['score']}")
-        print("\n")
+        text = sentences.sentences[i]
+        emotions = {
+            emotion["label"]: emotion["score"]
+            for emotion in output
+            if emotion["score"] >= 0.2
+        }
+        result.append({"text": text, "emotions": emotions})
+
+    return result
 
 
 @app.get("/tweets/{username}")
